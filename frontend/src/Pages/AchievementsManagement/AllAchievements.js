@@ -79,14 +79,15 @@ function AllAchievements() {
             value={searchQuery}
             onChange={handleSearch}
           />
-          <button 
-            className="create-button" 
-            style={{ background: "linear-gradient(45deg, #a18cd1 0%, #fbc2eb 100%)" }}
-            onClick={() => (window.location.href = '/addAchievements')}
-          >
-            <IoIosCreate className="create-icon" />
-            <span>Create</span>
-          </button>
+         <button 
+  className="create-button" 
+  style={{ background: "linear-gradient(45deg, #a18cd1 0%, #fbc2eb 100%)" }}
+  onClick={() => (window.location.href = '/addAchievements')}
+>
+  <IoIosCreate className="create-icon" />
+  <span>Create</span>
+</button>
+
         </div>
         
         <div className="posts-grid">
