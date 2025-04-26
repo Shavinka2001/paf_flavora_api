@@ -228,6 +228,7 @@ public class PostManagementController {
     @PostMapping("/{postId}/comment")
     public ResponseEntity<PostManagementModel> addComment(@PathVariable String postId, @RequestBody Map<String, String> request) {
         String userID = request.get("userID");
+        System.out.println("user id : "+userID);
         String content = request.get("content");
 
         return postRepository.findById(postId)
