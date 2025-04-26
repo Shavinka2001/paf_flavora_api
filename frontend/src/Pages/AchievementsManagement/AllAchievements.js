@@ -71,7 +71,7 @@ function AllAchievements() {
     <div className="modern-container">
       <NavBar />
       <div className="modern-content">
-        <div className="search-container" style={{ marginTop: "-110px" }}>
+        <div className="search-container" >
           <input
             type="text"
             className="search-input"
