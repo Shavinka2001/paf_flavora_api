@@ -6,6 +6,8 @@ import NavBar from '../../Components/NavBar/NavBar';
 import { MdOutlineMarkChatRead } from "react-icons/md";
 import { IoNotificationsOutline } from "react-icons/io5";
 
+// NotificationsPage component to manage and display notifications
+
 function NotificationsPage() {
   // State to store notifications
   const [notifications, setNotifications] = useState([]);
@@ -24,6 +26,7 @@ function NotificationsPage() {
         setNotifications(response.data); // Set notifications into state
       } catch (error) {
         console.error('Error fetching notifications:', error);
+
       } finally {
         setLoading(false); // Always stop loading after the API call
       }
@@ -44,7 +47,7 @@ function NotificationsPage() {
       // Update the specific notification's 'read' status in the state
       setNotifications(notifications.map((n) => (n.id === id ? { ...n, read: true } : n)));
     } catch (error) {
-      console.error('Error marking notification as read:', error);
+      console.error('Error marking notification as read:', error);    
     }
   };
 
