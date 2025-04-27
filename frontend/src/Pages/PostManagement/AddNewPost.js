@@ -31,7 +31,7 @@ function AddNewPost() {
       } else if (file.type === 'video/mp4') {
         videoCount++;
 
-        const video = document.createElement('video');
+        const video = document.createElement('video...');
         video.preload = 'metadata';
         video.src = URL.createObjectURL(file);
 
