@@ -8,7 +8,7 @@ function UserLogin() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [isAnimated, setIsAnimated] = useState(false);
   const navigate = useNavigate();
-
+// const userId = localStorage.getItem('userID');
   useEffect(() => {
     setIsAnimated(true);
   }, []);
