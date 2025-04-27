@@ -198,7 +198,7 @@ function AddLearningPlan() {
                 className="form-textarea"
                 placeholder="Describe your learning plan"
                 value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) => setDescriptions(e.target.value)}
                 required
                 rows={4}
               />
