@@ -67,7 +67,7 @@ function AddAchievements() {
       body: JSON.stringify({ ...formData, imageUrl }),
     });
     if (response.ok) {
-      alert('Achievements added successfully!');
+      alert('Achievements added successfully!..');
       window.location.href = '/myAchievements';
     } else {
       alert('Failed to add Achievements.');
