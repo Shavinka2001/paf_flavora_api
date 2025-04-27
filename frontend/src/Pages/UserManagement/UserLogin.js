@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './user.css'
 import GoogalLogo from './img/glogo.png'
 
+// Function to fetch user details from backend
 function UserLogin() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [isAnimated, setIsAnimated] = useState(false);
