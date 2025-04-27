@@ -206,7 +206,7 @@ function AddLearningPlan() {
             
             <div className="form-group date-range-container">
               <div className="date-field">
-                <label className="form-label">Start Date</label>
+                <label className="form-label">end Date</label>
                 <input
                   className="form-input"
                   type="date"
