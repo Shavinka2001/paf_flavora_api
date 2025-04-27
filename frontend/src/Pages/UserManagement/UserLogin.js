@@ -32,7 +32,7 @@ function UserLogin() {
         localStorage.setItem('userID', data.id); // Save user ID in local storage
         alert('Login successful!');
         navigate('/allPost');
-      } else if (response.status === 401) {
+      } else if (response.status === 401) { // Unauthorized error
         alert('Invalid credentials!');
       } else {
         alert('Failed to login!');
