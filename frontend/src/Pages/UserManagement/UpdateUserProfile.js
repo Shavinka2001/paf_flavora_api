@@ -126,7 +126,7 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
     }
   };
 
-  const getProfileImageUrl = () => {
+  const getProfileImageUrl = () => { // Function to get profile image URL
     if (previewImage) return previewImage;
     if (formData.profilePicturePath) {
       return `http://localhost:8080/uploads/profile/${formData.profilePicturePath}?t=${new Date().getTime()}`;
