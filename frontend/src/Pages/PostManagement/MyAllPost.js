@@ -125,7 +125,7 @@ function MyAllPost() {
       setPosts((prevPosts) =>
         prevPosts.map((post) =>
           post.id === postId ? { ...post, likes: response.data.likes } : post
-        )
+    )
       );
 
       setFilteredPosts((prevFilteredPosts) =>
