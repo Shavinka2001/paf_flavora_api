@@ -71,7 +71,7 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
     }
   };
 
-  const handleRemoveProfilePicture = () => {
+  const handleRemoveProfilePicture = () => { // Function to remove profile picture
     setPreviewImage(null);
     setProfilePicture(null);
     setPictureRemoved(true);
