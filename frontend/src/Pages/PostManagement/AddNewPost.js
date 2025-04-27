@@ -22,7 +22,7 @@ function AddNewPost() {
 
     for (const file of files) {
       if (file.size > maxFileSize) {
-        alert(`File ${file.name} exceeds the maximum size of 50MB.`);
+        alert(`File ${file.name} exceeds the maximum size of 50MB .....`);
         window.location.reload();
       }
 
