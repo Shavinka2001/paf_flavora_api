@@ -134,7 +134,7 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
     return null;
   };
 
-  const profileImageStyle = {
+  const profileImageStyle = { // Style for profile image
     width: '100%',
     height: '100%',
     objectFit: 'cover',
