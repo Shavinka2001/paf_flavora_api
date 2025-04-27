@@ -60,7 +60,7 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleProfilePictureChange = (e) => {
+  const handleProfilePictureChange = (e) => { // Function to handle profile picture change
     const file = e.target.files[0];
     if (file) {
       setPictureRemoved(false);
