@@ -4,6 +4,7 @@ import { FaEnvelope, FaPhone, FaTools, FaUserEdit, FaTrash, FaBookOpen, FaLightb
 import './UserProfile.css'
 import NavBar from '../../Components/NavBar/NavBar';
 
+// Function to fetch user details from backend
 export const fetchUserDetails = async (userId) => {
     try {
         const response = await fetch(`http://localhost:8080/user/${userId}`);
