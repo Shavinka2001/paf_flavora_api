@@ -12,7 +12,7 @@ function NotificationsPage() {
   // State to show loading status
   const [loading, setLoading] = useState(true);
   // Get user ID from local storage
-  const userId = localStorage.getItem('userID');
+  const userId = localStorage.getItem('userID');  // Assuming userID is stored in local storage
 
   useEffect(() => {
     // Function to fetch notifications from the backend
