@@ -91,7 +91,7 @@ function GoogalUserPro() {
         );
     }
 
-    return (
+    return ( // Render user profile and dashboard
         <div className="page-container">
             <NavBar />
             <div className="profile-container">
