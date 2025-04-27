@@ -132,7 +132,7 @@ function UpdatePost() {
       alert('Post updated successfully!');
       navigate('/allPost');
     } catch (error) {
-      console.error('Error updating post:', error);
+      console.error('Error updating post:...', error);
       alert('Failed to update post.');
     }
   };
