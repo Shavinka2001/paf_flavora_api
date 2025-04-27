@@ -44,6 +44,7 @@ function GoogalUserPro() {
     }, []);
     
     useEffect(() => {
+        // Check if user is logged in and fetch profile image
         const storedUserType = localStorage.getItem('userType');
         setUserType(storedUserType);
         if (storedUserType === 'google') {
