@@ -49,7 +49,7 @@ function UpdatePost() {
       setExistingMedia(existingMedia.filter((url) => url !== mediaUrl)); // Remove from UI
       alert('Media file deleted successfully!');
     } catch (error) {
-      console.error('Error deleting media file:', error);
+      console.error('Error deleting media file:..', error);
       alert('Failed to delete media file.');
     }
   };
