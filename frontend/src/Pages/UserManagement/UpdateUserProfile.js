@@ -22,6 +22,8 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
   const [skillInput, setSkillInput] = useState('');
   const [isDragging, setIsDragging] = useState(false);
 
+  // Function to handle drag and drop
+
   const handleAddSkill = () => {
     if (skillInput.trim()) {
       setFormData({ ...formData, skills: [...formData.skills, skillInput] });
