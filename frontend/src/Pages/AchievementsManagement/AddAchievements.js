@@ -70,7 +70,7 @@ function AddAchievements() {
       alert('Achievements added successfully!..');
       window.location.href = '/myAchievements';
     } else {
-      alert('Failed to add Achievements.');
+      alert('Failed to add Achievements...');
     }
   };
 
