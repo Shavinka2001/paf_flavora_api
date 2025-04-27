@@ -77,7 +77,7 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
     setPictureRemoved(true);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { // Function to handle form submission
     e.preventDefault();
     setIsUploading(true);
     try {
