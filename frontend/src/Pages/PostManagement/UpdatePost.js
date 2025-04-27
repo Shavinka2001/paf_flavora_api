@@ -133,7 +133,7 @@ function UpdatePost() {
       navigate('/allPost');
     } catch (error) {
       console.error('Error updating post:...', error);
-      alert('Failed to update post.');
+      alert('Failed to update post....');
     }
   };
 
