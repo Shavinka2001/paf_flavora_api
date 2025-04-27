@@ -70,7 +70,7 @@ function UpdatePost() {
       };
 
       video.onerror = () => {
-        reject(`Failed to load video metadata for ${file.name}.`);
+        reject(`Failed to load video metadata for.... ${file.name}.`);
       };
     });
   };
