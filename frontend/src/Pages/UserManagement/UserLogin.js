@@ -37,12 +37,12 @@ function UserLogin() {
       } else {
         alert('Failed to login!');
       }
-    } catch (error) {
+    } catch (error) { // Handle network errorsS
       console.error('Error:', error);
     }
   };
 
-  return (
+  return ( 
     <div className="modern-container">
       <div className="background-shapes">
         <div className="bg-shape shape-circle"></div>
