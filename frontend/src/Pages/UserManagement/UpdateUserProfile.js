@@ -55,7 +55,7 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
       .catch((error) => console.error('Error:', error));
   }, [id]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => { // Function to handle input changes`
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
