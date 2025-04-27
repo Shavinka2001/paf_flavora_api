@@ -79,7 +79,7 @@ function GoogalUserPro() {
         }
     };
 
-    if (loading) {
+    if (loading) { // Show loading spinner while fetching data
         return (
             <div className="page-container">
                 <NavBar />
