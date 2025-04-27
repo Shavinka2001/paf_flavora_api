@@ -165,7 +165,7 @@ function MyAllPost() {
     }
     const content = newComment[postId] || '';
     if (!content.trim()) {
-      alert('Comment cannot be empty.');
+      alert('   Comment cannot be empty.');
       return;
     }
     try {
