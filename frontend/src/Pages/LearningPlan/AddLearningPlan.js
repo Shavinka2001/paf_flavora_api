@@ -61,7 +61,7 @@ function AddLearningPlan() {
     setIsSubmitting(true);
 
     if (startDate === endDate) {
-      alert("Start date and end date cannot be the same.");
+      alert("Start date and end date cannot be the same...");
       setIsSubmitting(false);
       return;
     }
