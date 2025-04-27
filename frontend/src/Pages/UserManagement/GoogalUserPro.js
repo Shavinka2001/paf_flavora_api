@@ -33,6 +33,7 @@ function GoogalUserPro() {
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {
+        // Check if user is logged in
         const userId = localStorage.getItem('userID');
         if (userId) {
             setLoading(true);
