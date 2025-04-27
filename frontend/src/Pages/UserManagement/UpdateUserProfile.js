@@ -142,7 +142,8 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
   };
 
   return (
-    <div className="post-creation-page">
+    // Main component rendering
+    <div className="post-creation-page"> 
       <NavBar />
       <div className="post-creation-container" style={{ marginTop: "80px" }}>
         <div className="post-form-card">
