@@ -116,7 +116,7 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
         }
       }
 
-      alert('Profile updated successfully!');
+      alert('Profile updated successfully!');// Show success message
       window.location.href = '/userProfile';
     } catch (error) {
       console.error('Error:', error);
