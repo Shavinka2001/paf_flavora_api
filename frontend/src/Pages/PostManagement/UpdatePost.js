@@ -179,7 +179,7 @@ function UpdatePost() {
                 <option value="Healthy Recipes">Healthy Recipes</option>
                 <option value="Comfort Food">Comfort Food</option>
                 <option value="Traditional / Cultural Recipes">Traditional / Cultural Recipes</option>
-                <option value="Fusion Recipes">Fusion Recipes</option>
+                <option value="Fusion Recipes">Fusion_Recipes</option>
               </select>
             </div>
             
