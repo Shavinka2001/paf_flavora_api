@@ -5,6 +5,8 @@ import './UserProfile.css'
 import Pro from './img/img.png';
 import NavBar from '../../Components/NavBar/NavBar';
 
+
+// Function to fetch user details from backend
 export const fetchUserDetails = async (userId) => {
     try {
         const response = await fetch(`http://localhost:8080/user/${userId}`);
