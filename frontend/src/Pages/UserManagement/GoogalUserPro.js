@@ -146,7 +146,7 @@ function GoogalUserPro() {
                 )}
                 
                 <div className="user-sections">
-                    <h2>My Dashboard</h2>
+                    <h2>My Dashboard</h2> 
                     <div className="section-cards">
                         <div className="section-card" onClick={() => navigate('/myLearningPlan')}>
                             <div className="card-icon">
