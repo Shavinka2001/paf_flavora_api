@@ -4,7 +4,7 @@ import { IoMdAdd } from "react-icons/io";
 import NavBar from '../../Components/NavBar/NavBar';
 import '../PostManagement/AddNewPost.css'; // Import the CSS file
 
-function UpdateUserProfile() {
+function UpdateUserProfile() {  // Function to fetch user details from backend
   const { id } = useParams();
   const [formData, setFormData] = useState({
     fullname: '',
