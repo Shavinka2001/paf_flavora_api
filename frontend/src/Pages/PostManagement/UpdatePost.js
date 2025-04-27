@@ -92,7 +92,7 @@ function UpdatePost() {
       if (file.type.startsWith('image/')) {
         imageCount++;
         if (imageCount > maxImageCount) {
-          alert('You can upload a maximum of 3 images.');
+          alert('You can upload a maximum of 3 images...');
           return;
         }
       } else if (file.type === 'video/mp4') {
