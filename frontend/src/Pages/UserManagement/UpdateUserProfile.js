@@ -13,7 +13,7 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
     phone: '',
     skills: [],
     bio: '',
-  });
+  }); // State variables
   const [profilePicture, setProfilePicture] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [pictureRemoved, setPictureRemoved] = useState(false);
