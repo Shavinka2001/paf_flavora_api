@@ -98,7 +98,7 @@ function UpdatePost() {
       } else if (file.type === 'video/mp4') {
         videoCount++;
         if (videoCount > 1) {
-          alert('You can upload only 1 video.');
+          alert('You can upload only 1 video...');
           return;
         }
 
