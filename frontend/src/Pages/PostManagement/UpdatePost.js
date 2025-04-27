@@ -109,7 +109,7 @@ function UpdatePost() {
           return;
         }
       } else {
-        alert(`Unsupported file type: ${file.type}`);
+        alert(`Unsupported file type..: ${file.type}`);
         return;
       }
     }
