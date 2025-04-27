@@ -20,7 +20,7 @@ export const fetchUserDetails = async (userId) => {
     }
 };
 
-function UserProfile() {
+function UserProfile() { // State variables
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
