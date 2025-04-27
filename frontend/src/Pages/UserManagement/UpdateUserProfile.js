@@ -149,7 +149,7 @@ function UpdateUserProfile() {  // Function to fetch user details from backend
         <div className="post-form-card">
           <h1 className="form-title">Update Profile</h1>
           <p className="form-subtitle">Edit your personal information and skills</p>
-
+          
           <form onSubmit={handleSubmit} className="modern-form">
             <div className="form-group">
               <label className="form-label">Full Name</label>
