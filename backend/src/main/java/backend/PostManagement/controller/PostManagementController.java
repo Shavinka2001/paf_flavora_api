@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/posts")
 public class PostManagementController {
+
     @Autowired
     private PostManagementRepository postRepository;
 
@@ -43,62 +44,61 @@ public class PostManagementController {
     @Value("${media.upload.dir}")
     private String uploadDir;
 
+    // Create a new post with media upload (1-3 files allowed)
     @PostMapping
     public ResponseEntity<?> createPost(
             @RequestParam String userID,
             @RequestParam String title,
             @RequestParam String description,
-            @RequestParam String category, // New parameter for category
+            @RequestParam String category,
             @RequestParam List<MultipartFile> mediaFiles) {
 
+        // Validate number of uploaded files
         if (mediaFiles.size() < 1 || mediaFiles.size() > 3) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("You must upload between 1 and 3 media files.");
         }
 
-        // Resolve the upload directory as an absolute path
+        // Create upload directory if not exists
         final File uploadDirectory = new File(uploadDir.isBlank() ? uploadDir : System.getProperty("user.dir"), uploadDir);
-
-        // Ensure the upload directory exists
-        if (!uploadDirectory.exists()) {
-            boolean created = uploadDirectory.mkdirs();
-            if (!created) {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create upload directory.");
-            }
+        if (!uploadDirectory.exists() && !uploadDirectory.mkdirs()) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create upload directory.");
         }
 
+        // Store media files and generate URLs
         List<String> mediaUrls = mediaFiles.stream()
                 .filter(file -> file.getContentType().matches("image/(jpeg|png|jpg)|video/mp4"))
                 .map(file -> {
                     try {
-                        // Generate a unique filename
                         String extension = StringUtils.getFilenameExtension(file.getOriginalFilename());
                         String uniqueFileName = System.currentTimeMillis() + "_" + UUID.randomUUID() + "." + extension;
-
                         Path filePath = uploadDirectory.toPath().resolve(uniqueFileName);
                         file.transferTo(filePath.toFile());
-                        return "/media/" + uniqueFileName; // URL to access the file
+                        return "/media/" + uniqueFileName;
                     } catch (IOException e) {
                         throw new RuntimeException("Failed to store file " + file.getOriginalFilename(), e);
                     }
                 })
                 .collect(Collectors.toList());
 
+        // Save post
         PostManagementModel post = new PostManagementModel();
         post.setUserID(userID);
         post.setTitle(title);
         post.setDescription(description);
-        post.setCategory(category); // Set category
+        post.setCategory(category);
         post.setMedia(mediaUrls);
 
         PostManagementModel savedPost = postRepository.save(post);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
     }
 
+    // Get all posts
     @GetMapping
     public List<PostManagementModel> getAllPosts() {
         return postRepository.findAll();
     }
 
+    // Get posts by a specific user
     @GetMapping("/user/{userID}")
     public List<PostManagementModel> getPostsByUser(@PathVariable String userID) {
         return postRepository.findAll().stream()
@@ -106,6 +106,7 @@ public class PostManagementController {
                 .collect(Collectors.toList());
     }
 
+    // Get a post by its ID
     @GetMapping("/{postId}")
     public ResponseEntity<?> getPostById(@PathVariable String postId) {
         PostManagementModel post = postRepository.findById(postId)
@@ -113,6 +114,7 @@ public class PostManagementController {
         return ResponseEntity.ok(post);
     }
 
+    // Delete a post by ID (including media files)
     @DeleteMapping("/{postId}")
     public ResponseEntity<?> deletePost(@PathVariable String postId) {
         PostManagementModel post = postRepository.findById(postId)
@@ -121,7 +123,6 @@ public class PostManagementController {
         // Delete associated media files
         for (String mediaUrl : post.getMedia()) {
             try {
-                // Resolve the full file path
                 Path filePath = Paths.get(uploadDir, mediaUrl.replace("/media/", ""));
                 Files.deleteIfExists(filePath);
             } catch (IOException e) {
@@ -130,17 +131,17 @@ public class PostManagementController {
             }
         }
 
-        // Delete the post from the database
         postRepository.deleteById(postId);
         return ResponseEntity.ok("Post deleted successfully!");
     }
 
+    // Update post details and optionally add new media files
     @PutMapping("/{postId}")
     public ResponseEntity<?> updatePost(
             @PathVariable String postId,
             @RequestParam String title,
             @RequestParam String description,
-            @RequestParam String category, // Include category parameter
+            @RequestParam String category,
             @RequestParam(required = false) List<MultipartFile> newMediaFiles) {
 
         PostManagementModel post = postRepository.findById(postId)
@@ -148,16 +149,12 @@ public class PostManagementController {
 
         post.setTitle(title);
         post.setDescription(description);
-        post.setCategory(category); // Update category
+        post.setCategory(category);
 
         if (newMediaFiles != null && !newMediaFiles.isEmpty()) {
-            // Ensure the upload directory exists
             final File uploadDirectory = new File(uploadDir.isBlank() ? uploadDir : System.getProperty("user.dir"), uploadDir);
-            if (!uploadDirectory.exists()) {
-                boolean created = uploadDirectory.mkdirs();
-                if (!created) {
-                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create upload directory.");
-                }
+            if (!uploadDirectory.exists() && !uploadDirectory.mkdirs()) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create upload directory.");
             }
 
             List<String> newMediaUrls = newMediaFiles.stream()
@@ -180,6 +177,7 @@ public class PostManagementController {
         return ResponseEntity.ok("Post updated successfully!");
     }
 
+    // Delete a specific media file from a post
     @DeleteMapping("/{postId}/media")
     public ResponseEntity<?> deleteMedia(@PathVariable String postId, @RequestBody Map<String, String> request) {
         String mediaUrl = request.get("mediaUrl");
@@ -202,14 +200,16 @@ public class PostManagementController {
         return ResponseEntity.ok("Media file deleted successfully!");
     }
 
+    // Like or unlike a post
     @PutMapping("/{postId}/like")
     public ResponseEntity<PostManagementModel> likePost(@PathVariable String postId, @RequestParam String userID) {
         return postRepository.findById(postId)
                 .map(post -> {
+                    // Toggle like status
                     post.getLikes().put(userID, !post.getLikes().getOrDefault(userID, false));
                     postRepository.save(post);
 
-                    // Create a notification for the post owner
+                    // Send notification if user is not liking their own post
                     if (!userID.equals(post.getUserID())) {
                         String userFullName = userRepository.findById(userID)
                                 .map(user -> user.getFullname())
@@ -225,10 +225,10 @@ public class PostManagementController {
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    // Add a comment to a post
     @PostMapping("/{postId}/comment")
     public ResponseEntity<PostManagementModel> addComment(@PathVariable String postId, @RequestBody Map<String, String> request) {
         String userID = request.get("userID");
-        System.out.println("user id : "+userID);
         String content = request.get("content");
 
         return postRepository.findById(postId)
@@ -238,7 +238,6 @@ public class PostManagementController {
                     comment.setUserID(userID);
                     comment.setContent(content);
 
-                    // Fetch user's full name
                     String userFullName = userRepository.findById(userID)
                             .map(user -> user.getFullname())
                             .orElse("Anonymous");
@@ -247,7 +246,7 @@ public class PostManagementController {
                     post.getComments().add(comment);
                     postRepository.save(post);
 
-                    // Create a notification for the post owner
+                    // Notify post owner about the new comment
                     if (!userID.equals(post.getUserID())) {
                         String message = String.format("%s commented on your post: %s", userFullName, post.getTitle());
                         String currentDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -260,6 +259,7 @@ public class PostManagementController {
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    // Update a comment
     @PutMapping("/{postId}/comment/{commentId}")
     public ResponseEntity<PostManagementModel> updateComment(
             @PathVariable String postId,
@@ -280,6 +280,7 @@ public class PostManagementController {
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    // Delete a comment (allowed by comment owner or post owner)
     @DeleteMapping("/{postId}/comment/{commentId}")
     public ResponseEntity<PostManagementModel> deleteComment(
             @PathVariable String postId,
@@ -296,6 +297,7 @@ public class PostManagementController {
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    // Handle file size limit exception
     @ExceptionHandler(MaxUploadSizeExceededException.class)
     public ResponseEntity<?> handleMaxSizeException(MaxUploadSizeExceededException exc) {
         return ResponseEntity.status(HttpStatus.PAYLOAD_TOO_LARGE).body("File size exceeds the maximum limit!");
