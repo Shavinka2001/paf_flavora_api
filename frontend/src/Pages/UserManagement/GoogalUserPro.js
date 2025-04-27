@@ -60,6 +60,7 @@ function GoogalUserPro() {
     }, [userId]);
     
     const handleDelete = () => {
+        // Confirm deletion and delete user profile
         if (window.confirm("Are you sure you want to delete your profile?")) {
             const userId = localStorage.getItem('userID');
             fetch(`http://localhost:8080/user/${userId}`, {
