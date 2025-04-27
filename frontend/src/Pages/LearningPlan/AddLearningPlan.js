@@ -33,7 +33,7 @@ function AddLearningPlan() {
       }
       
       if (!file.type.startsWith('image/')) {
-        alert('Please upload an image file.');
+        alert('Please upload an image file...');
         return;
       }
       
