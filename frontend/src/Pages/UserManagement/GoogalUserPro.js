@@ -23,6 +23,7 @@ export const fetchUserDetails = async (userId) => {
 };
 
 function GoogalUserPro() {
+     // State variables
     const [userData, setUserData] = useState(null);
     const navigate = useNavigate();
     const userId = localStorage.getItem('userID');
