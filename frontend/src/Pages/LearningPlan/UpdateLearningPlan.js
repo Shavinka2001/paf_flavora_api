@@ -89,7 +89,7 @@ function UpdateLearningPost() {
       }
       return url;
     } catch (error) {
-      console.error('INVALID URL:', url);
+      console.error('Invalid URL:', url);
       return '';
     }
   };
