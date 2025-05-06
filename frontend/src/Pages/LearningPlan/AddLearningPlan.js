@@ -243,7 +243,7 @@ function AddLearningPlan() {
             </div>
 
             <div className="form-group">
-              <label className="form-label">CONTENT URL</label>
+              <label className="form-label">Content URL</label>
               <input
                 className="form-input"
                 type="url"
