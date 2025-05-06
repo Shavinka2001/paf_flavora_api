@@ -221,7 +221,7 @@ function UpdateLearningPost() {
             </div>
             
             <div className="form-group">
-              <label className="form-label">Template Style</label>
+              <label className="form-label">TEMPLATE Style</label>
               <select
                 className="form-select"
                 value={templateID}
