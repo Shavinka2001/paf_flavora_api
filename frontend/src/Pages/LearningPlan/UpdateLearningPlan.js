@@ -177,7 +177,7 @@ function UpdateLearningPost() {
                 <option value="One-Pot Meals">One-Pot Meals</option>
                 <option value="Meal Prep / Batch Cooking">Meal Prep / Batch Cooking</option>
                 <option value="Budget-Friendly">Budget-Friendly</option>
-                <option value="Kid-Friendly">Kid-Friendly</option>
+                <option value="Kids-Friendly">Kid-Friendly</option>
                 <option value="Healthy Recipes">Healthy Recipes</option>
                 <option value="Comfort Food">Comfort Food</option>
                 <option value="Traditional / Cultural Recipes">Traditional / Cultural Recipes</option>
