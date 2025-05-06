@@ -189,7 +189,7 @@ function UpdateLearningPost() {
               <label className="form-label">Description</label>
               <textarea
                 className="form-textarea"
-                placeholder="Describe your learning plan"
+                placeholder="Describe your learning plans"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
