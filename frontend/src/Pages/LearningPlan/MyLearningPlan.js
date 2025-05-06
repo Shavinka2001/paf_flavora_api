@@ -40,7 +40,7 @@ function MyLearningPlan() {
       }
       return url; // Return the original URL if it's not a YouTube link
     } catch (error) {
-      console.error('Invalid URL:', url);
+      console.error('INVALID URL:', url);
       return ''; // Return an empty string for invalid URLs
     }
   };
