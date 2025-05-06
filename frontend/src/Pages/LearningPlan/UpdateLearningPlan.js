@@ -229,7 +229,7 @@ function UpdateLearningPost() {
                 required
               >
                 <option value="">Select Template</option>
-                <option value="1">TEMPLATE 1</option>
+                <option value="1">Template 1</option>
                 <option value="2">Template 2</option>
                 <option value="3">Template 3</option>
               </select>
