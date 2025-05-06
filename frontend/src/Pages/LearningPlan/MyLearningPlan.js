@@ -50,7 +50,7 @@ function MyLearningPlan() {
     if (confirmDelete) {
       try {
         await axios.delete(`http://localhost:8080/learningPlan/${id}`);
-        alert('Post DELETED successfully!');
+        alert('Post Deleted successfully!');
         setFilteredPosts(filteredPosts.filter((post) => post.id !== id)); // Update the list after deletion
       } catch (error) {
         console.error('Error deleting post:', error);
