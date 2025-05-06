@@ -39,7 +39,7 @@ function UpdateLearningPost() {
         setEndDate(endDate);
         setCategory(category);
       } catch (error) {
-        console.error('Error fetching post:', error);
+        console.error('Error fetching Post:', error);
       }
     };
 
