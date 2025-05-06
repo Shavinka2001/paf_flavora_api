@@ -196,7 +196,7 @@ function AddLearningPlan() {
               <label className="form-label">Description</label>
               <textarea
                 className="form-textarea"
-                placeholder="Describe your learning plan"
+                placeholder="Describe your learning plan.."
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
