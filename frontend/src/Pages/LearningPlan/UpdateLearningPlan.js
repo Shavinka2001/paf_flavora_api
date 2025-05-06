@@ -133,7 +133,7 @@ function UpdateLearningPost() {
     const updatedPost = { title, description, contentURL, tags, imageUrl, postOwnerID: localStorage.getItem('userID'), templateID, startDate, endDate, category };
     try {
       await axios.put(`http://localhost:8080/learningPlan/${id}`, updatedPost);
-      alert('Post updated successfully!');
+      alert('Post updated successfully!!');
       window.location.href = '/allLearningPlan';
     } catch (error) {
       console.error('Error updating post:', error);
