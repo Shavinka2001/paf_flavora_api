@@ -124,7 +124,7 @@ function UpdateLearningPost() {
         imageUrl = uploadResponse.data;
       } catch (error) {
         console.error('Error uploading image:', error);
-        alert('Failed to upload image.');
+        alert('Failed to upload image');
         setIsSubmitting(false);
         return;
       }
