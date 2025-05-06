@@ -53,7 +53,7 @@ function MyLearningPlan() {
         alert('Post DELETED successfully!');
         setFilteredPosts(filteredPosts.filter((post) => post.id !== id)); // Update the list after deletion
       } catch (error) {
-        console.error('ERROR deleting post:', error);
+        console.error('Error deleting post:', error);
         alert('Failed to delete post.');
       }
     }
