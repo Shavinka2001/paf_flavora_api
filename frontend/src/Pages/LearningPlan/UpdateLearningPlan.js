@@ -105,7 +105,7 @@ function UpdateLearningPost() {
     }
 
     if (startDate > endDate) {
-      alert("Start date cannot be greater than end date.");
+      alert("Start date cannot be greater than end date..");
       setIsSubmitting(false);
       return;
     }
