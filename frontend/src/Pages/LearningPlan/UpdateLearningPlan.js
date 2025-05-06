@@ -30,7 +30,7 @@ function UpdateLearningPost() {
         const response = await axios.get(`http://localhost:8080/learningPlan/${id}`);
         const { title, description, contentURL, tags, imageUrl, templateID, startDate, endDate, category } = response.data;
         setTitle(title);
-        setDescription(description);
+        setDescription(descriptions);
         setContentURL(contentURL);
         setTags(tags);
         setExistingImage(imageUrl);
