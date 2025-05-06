@@ -137,7 +137,7 @@ function UpdateLearningPost() {
       window.location.href = '/allLearningPlan';
     } catch (error) {
       console.error('Error updating post:', error);
-      alert('Failed to update post.');
+      alert('Failed to update post..');
     } finally {
       setIsSubmitting(false);
     }
