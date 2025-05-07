@@ -5,6 +5,8 @@ import './UserProfile.css'
 import Pro from './img/img.png';
 import NavBar from '../../Components/NavBar/NavBar';
 
+
+// Function to fetch user details from backend
 export const fetchUserDetails = async (userId) => {
     try {
         const response = await fetch(`http://localhost:8080/user/${userId}`);
@@ -21,6 +23,7 @@ export const fetchUserDetails = async (userId) => {
 };
 
 function GoogalUserPro() {
+     // State variables
     const [userData, setUserData] = useState(null);
     const navigate = useNavigate();
     const userId = localStorage.getItem('userID');
@@ -30,6 +33,7 @@ function GoogalUserPro() {
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {
+        // Check if user is logged in
         const userId = localStorage.getItem('userID');
         if (userId) {
             setLoading(true);
@@ -40,6 +44,7 @@ function GoogalUserPro() {
     }, []);
     
     useEffect(() => {
+        // Check if user is logged in and fetch profile image
         const storedUserType = localStorage.getItem('userType');
         setUserType(storedUserType);
         if (storedUserType === 'google') {
@@ -55,6 +60,7 @@ function GoogalUserPro() {
     }, [userId]);
     
     const handleDelete = () => {
+        // Confirm deletion and delete user profile
         if (window.confirm("Are you sure you want to delete your profile?")) {
             const userId = localStorage.getItem('userID');
             fetch(`http://localhost:8080/user/${userId}`, {
@@ -73,7 +79,7 @@ function GoogalUserPro() {
         }
     };
 
-    if (loading) {
+    if (loading) { // Show loading spinner while fetching data
         return (
             <div className="page-container">
                 <NavBar />
@@ -85,7 +91,7 @@ function GoogalUserPro() {
         );
     }
 
-    return (
+    return ( // Render user profile and dashboard
         <div className="page-container">
             <NavBar />
             <div className="profile-container">
@@ -140,7 +146,7 @@ function GoogalUserPro() {
                 )}
                 
                 <div className="user-sections">
-                    <h2>My Dashboard</h2>
+                    <h2>My Dashboard</h2> 
                     <div className="section-cards">
                         <div className="section-card" onClick={() => navigate('/myLearningPlan')}>
                             <div className="card-icon">

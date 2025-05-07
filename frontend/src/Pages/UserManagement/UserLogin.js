@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import './user.css'
 import GoogalLogo from './img/glogo.png'
 
+// Function to fetch user details from backend
 function UserLogin() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [isAnimated, setIsAnimated] = useState(false);
   const navigate = useNavigate();
-
+// const userId = localStorage.getItem('userID');
   useEffect(() => {
     setIsAnimated(true);
   }, []);
@@ -31,17 +32,17 @@ function UserLogin() {
         localStorage.setItem('userID', data.id); // Save user ID in local storage
         alert('Login successful!');
         navigate('/allPost');
-      } else if (response.status === 401) {
+      } else if (response.status === 401) { // Unauthorized error
         alert('Invalid credentials!');
       } else {
         alert('Failed to login!');
       }
-    } catch (error) {
+    } catch (error) { // Handle network errorsS
       console.error('Error:', error);
     }
   };
 
-  return (
+  return ( 
     <div className="modern-container">
       <div className="background-shapes">
         <div className="bg-shape shape-circle"></div>

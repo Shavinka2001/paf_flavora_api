@@ -4,7 +4,7 @@ import { IoMdAdd } from "react-icons/io";
 import NavBar from '../../Components/NavBar/NavBar';
 import '../PostManagement/AddNewPost.css'; // Import the CSS file
 
-function UpdateUserProfile() {
+function UpdateUserProfile() {  // Function to fetch user details from backend
   const { id } = useParams();
   const [formData, setFormData] = useState({
     fullname: '',
@@ -13,7 +13,7 @@ function UpdateUserProfile() {
     phone: '',
     skills: [],
     bio: '',
-  });
+  }); // State variables
   const [profilePicture, setProfilePicture] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [pictureRemoved, setPictureRemoved] = useState(false);
@@ -21,6 +21,8 @@ function UpdateUserProfile() {
   const navigate = useNavigate();
   const [skillInput, setSkillInput] = useState('');
   const [isDragging, setIsDragging] = useState(false);
+
+  // Function to handle drag and drop
 
   const handleAddSkill = () => {
     if (skillInput.trim()) {
@@ -53,12 +55,12 @@ function UpdateUserProfile() {
       .catch((error) => console.error('Error:', error));
   }, [id]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => { // Function to handle input changes`
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleProfilePictureChange = (e) => {
+  const handleProfilePictureChange = (e) => { // Function to handle profile picture change
     const file = e.target.files[0];
     if (file) {
       setPictureRemoved(false);
@@ -69,13 +71,13 @@ function UpdateUserProfile() {
     }
   };
 
-  const handleRemoveProfilePicture = () => {
+  const handleRemoveProfilePicture = () => { // Function to remove profile picture
     setPreviewImage(null);
     setProfilePicture(null);
     setPictureRemoved(true);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { // Function to handle form submission
     e.preventDefault();
     setIsUploading(true);
     try {
@@ -114,17 +116,17 @@ function UpdateUserProfile() {
         }
       }
 
-      alert('Profile updated successfully!');
-      window.location.href = '/userProfile';
+      alert('Profile updated successfully!');// Show success message
+      window.location.href = '/userProfile';// Redirect to user profile page
     } catch (error) {
       console.error('Error:', error);
-      alert(`Failed to update profile: ${error.message}`);
+      alert(`Failed to update profile: ${error.message}`);// Show error message
     } finally {
       setIsUploading(false);
     }
   };
 
-  const getProfileImageUrl = () => {
+  const getProfileImageUrl = () => { // Function to get profile image URL
     if (previewImage) return previewImage;
     if (formData.profilePicturePath) {
       return `http://localhost:8080/uploads/profile/${formData.profilePicturePath}?t=${new Date().getTime()}`;
@@ -132,7 +134,7 @@ function UpdateUserProfile() {
     return null;
   };
 
-  const profileImageStyle = {
+  const profileImageStyle = { // Style for profile image
     width: '100%',
     height: '100%',
     objectFit: 'cover',
@@ -140,13 +142,14 @@ function UpdateUserProfile() {
   };
 
   return (
-    <div className="post-creation-page">
+    // Main component rendering
+    <div className="post-creation-page"> 
       <NavBar />
       <div className="post-creation-container" style={{ marginTop: "80px" }}>
         <div className="post-form-card">
           <h1 className="form-title">Update Profile</h1>
           <p className="form-subtitle">Edit your personal information and skills</p>
-
+          
           <form onSubmit={handleSubmit} className="modern-form">
             <div className="form-group">
               <label className="form-label">Full Name</label>
