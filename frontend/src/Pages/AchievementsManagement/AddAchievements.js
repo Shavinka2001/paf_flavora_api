@@ -184,6 +184,7 @@ function AddAchievements() {
                 <option value="Traditional / Cultural Recipes">Traditional / Cultural Recipes</option>
                 <option value="Fusion Recipes">Fusion Recipes</option>
                 <option value="Global Flavors">Global Flavors</option>
+                <option value="Traditional Treasures">Traditional Treasures</option>
               </select>
             </div>
             
