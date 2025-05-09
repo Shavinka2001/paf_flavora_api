@@ -143,7 +143,7 @@ function UpdateAchievements() {
               <input
                 className="form-input"
                 name="title"
-                placeholder="Enter achievement title."
+                placeholder="Enter achievement title"
                 value={formData.title}
                 onChange={handleInputChange}
                 required
