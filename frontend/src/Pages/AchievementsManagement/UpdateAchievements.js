@@ -70,7 +70,7 @@ function UpdateAchievements() {
         });
         
         if (!uploadResponse.ok) {
-          throw new Error('Image upload failed...');
+          throw new Error('Image upload failed..');
         }
         imageUrl = await uploadResponse.text();
       }
