@@ -23,7 +23,7 @@ function AllAchievements() {
         setProgressData(data);
         setFilteredData(data);
       })
-      .catch((error) => console.error('Error fetching Achievements data:.', error));
+      .catch((error) => console.error('Error fetching Achievements data:...', error));
   }, []);
 
   const handleSearch = (e) => {
