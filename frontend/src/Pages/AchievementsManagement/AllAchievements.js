@@ -75,7 +75,7 @@ function AllAchievements() {
           <input
             type="text"
             className="search-input"
-            placeholder="Search achievements by title or description"
+            placeholder="Search achievements by title or description."
             value={searchQuery}
             onChange={handleSearch}
           />
