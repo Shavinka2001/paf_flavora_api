@@ -39,7 +39,7 @@ function AddAchievements() {
             setFormData((prevData) => ({ ...prevData, postOwnerName: data.fullname }));
           }
         })
-        .catch((error) => console.error('Error fetching user data:.', error));
+        .catch((error) => console.error('Error fetching user data:', error));
     }
   }, []);
 
