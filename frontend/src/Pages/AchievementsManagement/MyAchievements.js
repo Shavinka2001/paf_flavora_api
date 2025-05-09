@@ -23,7 +23,7 @@ function MyAchievements() {
         setProgressData(userFilteredData);
         setFilteredData(userFilteredData);
       })
-      .catch((error) => console.error('Error fetching Achievements data:.', error));
+      .catch((error) => console.error('Error fetching Achievements data:', error));
   }, [userId]);
 
   const handleDelete = async (id) => {
