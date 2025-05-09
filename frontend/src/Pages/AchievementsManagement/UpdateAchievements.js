@@ -172,7 +172,7 @@ function UpdateAchievements() {
                 <option value="Fusion Recipes">Fusion Recipes</option>
                  <option value="Family Favorites">Family Favorites</option>
                   <option value="Global Flavors">Global Flavors</option>
-                   <option value="Light & Fresh ">Light & Fresh </option>
+                   
               </select>
             </div>
 
