@@ -91,7 +91,7 @@ function UpdateAchievements() {
       }
     } catch (error) {
       console.error('Error:', error);
-      alert(error.message || 'An error occurred during update');
+      alert(error.message || 'An error occurred during update.');
     } finally {
       setIsLoading(false);
     }
