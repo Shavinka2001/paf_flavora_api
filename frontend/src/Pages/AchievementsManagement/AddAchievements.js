@@ -20,7 +20,7 @@ function AddAchievements() {
     if (file) {
       const maxFileSize = 50 * 1024 * 1024; // 50MB
       if (file.size > maxFileSize) {
-        alert(`File ${file.name} exceeds the maximum size of 50MB.`);
+        alert(`File ${file.name} exceeds the maximum size of 50MB..`);
         return;
       }
       setImage(file);
