@@ -170,7 +170,7 @@ function UpdateAchievements() {
                 <option value="Comfort Food">Comfort Food</option>
                 <option value="Traditional / Cultural Recipes">Traditional / Cultural Recipes</option>
                 <option value="Fusion Recipes">Fusion Recipes</option>
-                 <option value="Family Favorites">Family Favorites</option>
+                 
                   
                    
               </select>
