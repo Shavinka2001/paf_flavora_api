@@ -24,7 +24,7 @@ function UpdateAchievements() {
       try {
         const response = await fetch(`http://localhost:8080/achievements/${id}`);
         if (!response.ok) {
-          throw new Error('Failed to fetch achievement');
+          throw new Error('Failed to fetch achievement...');
         }
         const data = await response.json();
         setFormData(data);
@@ -70,7 +70,7 @@ function UpdateAchievements() {
         });
         
         if (!uploadResponse.ok) {
-          throw new Error('Image upload failed');
+          throw new Error('Image upload failed..');
         }
         imageUrl = await uploadResponse.text();
       }
@@ -161,7 +161,7 @@ function UpdateAchievements() {
                 required
               >
                 <option value="" disabled>Select Category</option>
-                <option value="Street Food">Street Food</option>
+                <option value="Beverages">Beverages</option>
                 <option value="One-Pot Meals">One-Pot Meals</option>
                 <option value="Meal Prep / Batch Cooking">Meal Prep / Batch Cooking</option>
                 <option value="Budget-Friendly">Budget-Friendly</option>
@@ -170,6 +170,9 @@ function UpdateAchievements() {
                 <option value="Comfort Food">Comfort Food</option>
                 <option value="Traditional / Cultural Recipes">Traditional / Cultural Recipes</option>
                 <option value="Fusion Recipes">Fusion Recipes</option>
+                 
+                  
+                   
               </select>
             </div>
 

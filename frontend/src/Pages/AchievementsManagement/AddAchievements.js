@@ -67,7 +67,7 @@ function AddAchievements() {
       body: JSON.stringify({ ...formData, imageUrl }),
     });
     if (response.ok) {
-      alert('Achievements added successfully!');
+      alert('Achievements added successfully!.');
       window.location.href = '/myAchievements';
     } else {
       alert('Failed to add Achievements.');
@@ -183,6 +183,8 @@ function AddAchievements() {
                 <option value="Comfort Food">Comfort Food</option>
                 <option value="Traditional / Cultural Recipes">Traditional / Cultural Recipes</option>
                 <option value="Fusion Recipes">Fusion Recipes</option>
+                
+                
               </select>
             </div>
             

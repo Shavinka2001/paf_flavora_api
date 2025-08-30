@@ -46,7 +46,7 @@ function AllAchievements() {
           method: 'DELETE',
         });
         if (response.ok) {
-          alert('Achievement deleted successfully!');
+          alert('Achievement deleted successfully!!');
           setFilteredData(filteredData.filter((progress) => progress.id !== id));
         } else {
           alert('Failed to delete Achievement.');
@@ -75,7 +75,7 @@ function AllAchievements() {
           <input
             type="text"
             className="search-input"
-            placeholder="Search achievements by title or description"
+            placeholder="Search achievements by title or description."
             value={searchQuery}
             onChange={handleSearch}
           />
